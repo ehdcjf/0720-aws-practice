@@ -45,19 +45,20 @@ router.delete('/:id',async (req,res,next)=>{
     }
 })
 
-router.patch('/:id',(req,res,next)=>{
+router.patch('/:id',async (req,res,next)=>{
     const {id} = req.params
     const {content} = req.body
 
     try {
-        const data = Comment.update({
+        const data = await Comment.update({
             content
         },{
             where:{id}
         })
 
+
         const result = data[0] >= 1
-        ? {result:'SUCCESS', msg:'댓글이 삭제되었습니다.',count:data[0]}
+        ? {result:'SUCCESS', msg:'댓글이 수정되었습니다.',count:data[0]}
         : {result:'ERROR', msg:'서버오류가 발생되었습니다.',count:data[0]}
 
         res.json(result)
