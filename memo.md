@@ -33,3 +33,4 @@ request method type
 7. models 폴더안에 comment.js 파일 생성 (DB모델을 만들기 위해서.)
 8. models 폴더안에 index.js파일을 수정하기
 9. server.js 파일에서 sequelize sync 하기.
+
